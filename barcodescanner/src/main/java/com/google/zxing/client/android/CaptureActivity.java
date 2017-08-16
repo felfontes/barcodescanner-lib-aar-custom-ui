@@ -868,8 +868,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   }
 
   private Drawable getTorchDrawable(boolean isTorchOn) {
-    //FIXME EWEEM-615 insert icon for active flashlight to achieve toggle functionality
-    Drawable d = ContextCompat.getDrawable(getApplicationContext(), isTorchOn ? R.drawable.icon_flash : R.drawable.icon_flash);
+    Drawable d = ContextCompat.getDrawable(getApplicationContext(), isTorchOn ? R.drawable.flashlight_active : R.drawable.flashlight_inactive);
     Bitmap b = ((BitmapDrawable)d).getBitmap();
     Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 60, 99, false);
     return new BitmapDrawable(getResources(), bitmapResized);

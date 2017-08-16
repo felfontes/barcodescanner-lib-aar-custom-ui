@@ -870,7 +870,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private Drawable getTorchDrawable(boolean isTorchOn) {
     Drawable d = ContextCompat.getDrawable(getApplicationContext(), isTorchOn ? R.drawable.flashlight_active : R.drawable.flashlight_inactive);
     Bitmap b = ((BitmapDrawable)d).getBitmap();
-    return new BitmapDrawable(getResources(), b);
+    Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 65, 65, false);
+    return new BitmapDrawable(getResources(), bitmapResized);
   }
 
   public void drawViewfinder() {

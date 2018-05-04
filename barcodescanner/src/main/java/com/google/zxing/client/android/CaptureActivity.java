@@ -197,7 +197,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     statusView = (TextView) findViewById(R.id.status_view);
     flipButton = (Button) findViewById(R.id.flip_button);
     torchButton = (Button) findViewById(R.id.torch_button);
-    enterNumberButton = (Button) findViewById(R.id.torch_button);
+    enterNumberButton = (Button) findViewById(R.id.enter_code_button);
 
     enterNumberButton.setOnClickListener(new Button.OnClickListener() {
       @Override

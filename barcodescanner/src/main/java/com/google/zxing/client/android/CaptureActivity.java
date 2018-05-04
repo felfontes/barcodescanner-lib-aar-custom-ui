@@ -113,6 +113,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private TextView statusView;
   private Button flipButton;
   private Button torchButton;
+  private Button enterNumberButton;
   private View resultView;
   private Result lastResult;
   private boolean hasSurface;
@@ -196,6 +197,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     statusView = (TextView) findViewById(R.id.status_view);
     flipButton = (Button) findViewById(R.id.flip_button);
     torchButton = (Button) findViewById(R.id.torch_button);
+    enterNumberButton = (Button) findViewById(R.id.torch_button);
 
     handler = null;
     lastResult = null;
@@ -849,6 +851,18 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       final int reqCamId = getIntent().getIntExtra(Intents.Scan.CAMERA_ID, OpenCameraInterface.NO_REQUESTED_CAMERA);
       if (reqCamId != 1) {
         for (final FeatureInfo feature : this.getPackageManager().getSystemAvailableFeatures()) {
+
+          enterNumberButton.setVisibility(View.VISIBLE);
+          enterNumberButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String typeDataString = "dados";
+                Object typeData = typeDataString;
+                setResult(RESULT_CANCELED,(Intent)typeData);
+                finish();
+            }
+          });
+
           if (PackageManager.FEATURE_CAMERA_FLASH.equalsIgnoreCase(feature.name)) {
             torchButton.setVisibility(View.VISIBLE);
             torchButton.setCompoundDrawablesWithIntrinsicBounds(null, this.getTorchDrawable(false), null, null);

@@ -24,7 +24,8 @@
   <com.google.zxing.client.android.ViewfinderView
       android:id="@+id/viewfinder_view"
       android:layout_width="fill_parent"
-      android:layout_height="fill_parent"/>
+      android:layout_height="fill_parent"
+      android:fadingEdge="none|horizontal|vertical" />
 
   <LinearLayout android:id="@+id/result_view"
       android:orientation="vertical"
@@ -201,24 +202,41 @@
       android:drawableStart="@drawable/flip_camera"
       android:visibility="invisible"/>
 
-  <TextView android:id="@+id/status_view"
+  <TextView
+      android:id="@+id/status_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="top|center_horizontal"
-      android:background="#FFFFFF"
+      android:background="@color/transparent"
+      android:padding="20dp"
       android:text="@string/msg_default_status"
-      android:padding="10dp"
-      android:textColor="#000000"/>
+      android:textAlignment="center"
+      android:textColor="#FFFFFF" />
 
-  <Button android:id="@+id/torch_button"
+  <Button
+      android:id="@+id/torch_button"
       android:layout_width="50dp"
       android:layout_height="50dp"
-      android:background="@drawable/roundedbutton"
-      android:layout_marginBottom="20dp"
-      android:layout_marginEnd="20dp"
-      android:layout_marginRight="20dp"
       android:layout_gravity="bottom|right"
-      android:paddingTop="12dp"
-      android:visibility="invisible"/>
+      android:layout_marginBottom="120dp"
+      android:layout_marginEnd="20dp"
+      android:layout_marginRight="180dp"
+      android:background="@drawable/roundedbutton"
+      android:visibility="invisible" />
 
+  <Button
+      android:id="@+id/enter_code_button"
+      android:layout_width="120dp"
+      android:layout_height="50dp"
+      android:layout_gravity="bottom|right"
+      android:layout_marginBottom="120dp"
+      android:layout_marginEnd="20dp"
+      android:layout_marginRight="40dp"
+      android:background="@drawable/lessroundedbutton"
+      android:fontFamily="@+font/montserrat"
+      android:text="Digitar dados"
+      android:textAlignment="center"
+      android:textAllCaps="false"
+      android:textColor="#273D52"
+      android:textSize="15sp" />
 </merge>

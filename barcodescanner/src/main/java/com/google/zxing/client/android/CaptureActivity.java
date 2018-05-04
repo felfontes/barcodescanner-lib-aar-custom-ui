@@ -199,6 +199,15 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     torchButton = (Button) findViewById(R.id.torch_button);
     enterNumberButton = (Button) findViewById(R.id.torch_button);
 
+    enterNumberButton.setOnClickListener(new Button.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Object typeData = "dados";
+        setResult(RESULT_CANCELED,(Intent)typeData);
+        finish();
+      }
+    });
+
     handler = null;
     lastResult = null;
 
@@ -867,16 +876,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         }
       }
     }
-
-    enterNumberButton.setVisibility(View.VISIBLE);
-    enterNumberButton.setOnClickListener(new Button.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Object typeData = "dados";
-        setResult(RESULT_CANCELED,(Intent)typeData);
-        finish();
-      }
-    });
   }
 
   private Drawable getTorchDrawable(boolean isTorchOn) {

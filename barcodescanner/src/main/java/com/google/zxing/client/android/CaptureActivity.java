@@ -113,6 +113,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private TextView statusView;
   private Button flipButton;
   private Button torchButton;
+  private Button enterCodeButton;
   private View resultView;
   private Result lastResult;
   private boolean hasSurface;
@@ -196,6 +197,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     statusView = (TextView) findViewById(R.id.status_view);
     flipButton = (Button) findViewById(R.id.flip_button);
     torchButton = (Button) findViewById(R.id.torch_button);
+    enterCodeButton = (Button) findViewById(R.id.enter_code);
 
     handler = null;
     lastResult = null;
@@ -816,6 +818,14 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private void resetStatusView() {
     resultView.setVisibility(View.GONE);
 
+    enterCodeButton.setOnClickListener(new Button.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        setResult(RESULT_CANCELED);
+        finish();
+      }
+    });
+
     // in case of continuous scan mode we don't want the message to be reset to the default if previously overridden
     String customPromptMessage = getIntent().getStringExtra(Intents.Scan.PROMPT_MESSAGE);
     if (customPromptMessage != null) {
@@ -851,13 +861,13 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         for (final FeatureInfo feature : this.getPackageManager().getSystemAvailableFeatures()) {
           if (PackageManager.FEATURE_CAMERA_FLASH.equalsIgnoreCase(feature.name)) {
             torchButton.setVisibility(View.VISIBLE);
-            torchButton.setCompoundDrawablesWithIntrinsicBounds(null, this.getTorchDrawable(false), null, null);
+          //  torchButton.setCompoundDrawablesWithIntrinsicBounds(null, null, null, this.getTorchDrawable(false));
             torchButton.setOnClickListener(new Button.OnClickListener() {
               @Override
               public void onClick(View v) {
                 cameraManager.setTorch(!cameraManager.isTorchOn());
-                torchButton.setCompoundDrawablesWithIntrinsicBounds(null,
-                        CaptureActivity.this.getTorchDrawable(cameraManager.isTorchOn()), null, null);
+             //   torchButton.setCompoundDrawablesWithIntrinsicBounds(null,
+             //           null, null, CaptureActivity.this.getTorchDrawable(cameraManager.isTorchOn()));
               }
             });
             break;
@@ -870,7 +880,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private Drawable getTorchDrawable(boolean isTorchOn) {
     Drawable d = ContextCompat.getDrawable(getApplicationContext(), isTorchOn ? R.drawable.flashlight_active : R.drawable.flashlight_inactive);
     Bitmap b = ((BitmapDrawable)d).getBitmap();
-    Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 65, 65, false);
+    Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 96, 96, false);
     return new BitmapDrawable(getResources(), bitmapResized);
   }
 

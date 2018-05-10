@@ -201,24 +201,62 @@
       android:drawableStart="@drawable/flip_camera"
       android:visibility="invisible"/>
 
-  <TextView android:id="@+id/status_view"
+  <TextView
+      android:id="@+id/status_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_gravity="top|center_horizontal"
-      android:background="#FFFFFF"
+      android:layout_marginTop="75dp"
+      android:background="@color/transparent"
+      android:fontFamily="Circular Std"
+      android:paddingLeft="40dp"
+      android:paddingRight="40dp"
       android:text="@string/msg_default_status"
-      android:padding="10dp"
-      android:textColor="#000000"/>
+      android:textAlignment="center"
+      android:textColor="#FFFFFF"
+      android:textSize="17sp" />
 
-  <Button android:id="@+id/torch_button"
-      android:layout_width="50dp"
+  <TextView
+      android:id="@+id/title_QR"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@color/transparent"
+      android:fontFamily="Circular Std"
+      android:padding="30dp"
+      android:text="Escanear o código QR"
+      android:textColor="#FFFFFF"
+      android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/torch_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/roundedsquaredbutton"
+        android:drawableBottom="@drawable/flashlight_inactive"
+        android:gravity="center" />
+
+  <Button
+      android:id="@+id/enter_code"
+      android:layout_width="150dp"
       android:layout_height="50dp"
-      android:background="@drawable/roundedbutton"
-      android:layout_marginBottom="20dp"
-      android:layout_marginEnd="20dp"
-      android:layout_marginRight="20dp"
-      android:layout_gravity="bottom|right"
-      android:paddingTop="12dp"
-      android:visibility="invisible"/>
+      android:layout_gravity="right|center|end"
+      android:layout_marginEnd="65dp"
+      android:layout_marginRight="65dp"
+      android:layout_marginTop="120dp"
+      android:background="@drawable/roundedsquaredbutton"
+      android:fontFamily="Circular Std"
+      android:text="Digitar dados"
+      android:textAlignment="center"
+      android:textAllCaps="false"
+      android:textColor="#273D52"
+      android:textSize="20sp" />
 
 </merge>

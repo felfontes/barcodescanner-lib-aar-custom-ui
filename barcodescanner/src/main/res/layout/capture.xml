@@ -253,7 +253,7 @@
       android:layout_marginTop="160dp"
       android:background="@drawable/roundedsquaredbutton"
       android:fontFamily="Circular Std"
-      android:text="Digitar dados"
+      android:text="Voltar"
       android:textAlignment="center"
       android:textAllCaps="false"
       android:textColor="#273D52"
